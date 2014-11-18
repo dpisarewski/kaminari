@@ -28,6 +28,12 @@ module Kaminari
       end
       require 'kaminari/models/array_extension'
 
+      ActiveSupport.on_load(:active_node) do
+        require 'kaminari/models/neo4j_extension'
+        ::Neo4j::Core::Query.send :include, Kaminari::Neo4j::Extension
+        ::Neo4j::ActiveNode::Query::QueryProxy.send :include, Kaminari::Neo4j::Extension
+      end
+
       ActiveSupport.on_load(:action_view) do
         ::ActionView::Base.send :include, Kaminari::ActionViewExtension
       end

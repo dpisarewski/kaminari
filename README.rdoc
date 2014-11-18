@@ -39,6 +39,8 @@ The pagination helper outputs the HTML5 <nav> tag by default. Plus, the helper s
 
 * DataMapper 1.1.0+
 
+* Neo4j 3.0+
+
 == Install
 
 Put this line in your Gemfile:
